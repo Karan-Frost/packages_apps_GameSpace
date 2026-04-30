@@ -361,11 +361,6 @@ class TileRepository @Inject constructor(
             context.getString(R.string.tile_cast),
         ))
         add(platformTile(
-            AxPlatformClient.FEATURE_PROFILES,
-            R.drawable.materialsymbols_ic_manage_accounts_rounded_filled,
-            context.getString(R.string.tile_profiles),
-        ))
-        add(platformTile(
             AxPlatformClient.FEATURE_SMART_PIXELS,
             R.drawable.materialsymbols_ic_grid_on_rounded_filled,
             context.getString(R.string.tile_smart_pixels),
