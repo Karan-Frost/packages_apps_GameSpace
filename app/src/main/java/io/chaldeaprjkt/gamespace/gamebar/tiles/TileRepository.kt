@@ -345,21 +345,6 @@ class TileRepository @Inject constructor(
             context.getString(R.string.tile_usb_tether),
         ))
         add(platformTile(
-            AxPlatformClient.FEATURE_DREAM,
-            R.drawable.materialsymbols_ic_bedtime_rounded_filled,
-            context.getString(R.string.tile_dream),
-        ))
-        add(platformTile(
-            AxPlatformClient.FEATURE_READING_MODE,
-            R.drawable.materialsymbols_ic_menu_book_rounded_filled,
-            context.getString(R.string.tile_reading_mode),
-        ))
-        add(platformTile(
-            AxPlatformClient.FEATURE_POWER_SHARE,
-            R.drawable.materialsymbols_ic_battery_charging_full_rounded_filled,
-            context.getString(R.string.tile_power_share),
-        ))
-        add(platformTile(
             AxPlatformClient.FEATURE_CAFFEINE,
             R.drawable.materialsymbols_ic_local_cafe_rounded_filled,
             context.getString(R.string.tile_caffeine),

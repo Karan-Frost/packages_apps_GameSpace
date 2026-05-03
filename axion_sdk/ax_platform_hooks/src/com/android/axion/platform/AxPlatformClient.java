@@ -68,9 +68,6 @@ public class AxPlatformClient {
     public static final String FEATURE_MIC_PRIVACY = "mic_privacy";
     public static final String FEATURE_WORK_PROFILE = "work_profile";
     public static final String FEATURE_USB_TETHER = "usb_tether";
-    public static final String FEATURE_DREAM = "dream";
-    public static final String FEATURE_READING_MODE = "reading_mode";
-    public static final String FEATURE_POWER_SHARE = "power_share";
     public static final String FEATURE_CAFFEINE = "caffeine";
     public static final String FEATURE_VPN = "vpn";
     public static final String FEATURE_CAST = "cast";
@@ -86,7 +83,6 @@ public class AxPlatformClient {
     public static final String KEY_CONFIG = "config";
     public static final String KEY_DOZE = "doze";
     public static final String KEY_KEYGUARD = "keyguard";
-    public static final String KEY_NOW_PLAYING = "now_playing";
 
     public static final String ACTION_WIFI_CONNECT = "wifi_connect";
     public static final String ACTION_BT_CONNECT = "bt_connect";
@@ -147,11 +143,6 @@ public class AxPlatformClient {
         SPEC_TO_FEATURE.put("work", FEATURE_WORK_PROFILE);
         SPEC_TO_FEATURE.put("work_profile", FEATURE_WORK_PROFILE);
         SPEC_TO_FEATURE.put("usb_tether", FEATURE_USB_TETHER);
-        SPEC_TO_FEATURE.put("dream", FEATURE_DREAM);
-        SPEC_TO_FEATURE.put("screensaver", FEATURE_DREAM);
-        SPEC_TO_FEATURE.put("reading_mode", FEATURE_READING_MODE);
-        SPEC_TO_FEATURE.put("power_share", FEATURE_POWER_SHARE);
-        SPEC_TO_FEATURE.put("reverse", FEATURE_POWER_SHARE);
         SPEC_TO_FEATURE.put("caffeine", FEATURE_CAFFEINE);
         SPEC_TO_FEATURE.put("vpn", FEATURE_VPN);
         SPEC_TO_FEATURE.put("cast", FEATURE_CAST);
@@ -175,7 +166,6 @@ public class AxPlatformClient {
         FEATURE_TO_CATEGORY.put(FEATURE_REDUCE_BRIGHTNESS, CATEGORY_DISPLAY);
         FEATURE_TO_CATEGORY.put(FEATURE_ROTATION, CATEGORY_DISPLAY);
         FEATURE_TO_CATEGORY.put(FEATURE_AOD, CATEGORY_DISPLAY);
-        FEATURE_TO_CATEGORY.put(FEATURE_READING_MODE, CATEGORY_DISPLAY);
         FEATURE_TO_CATEGORY.put(FEATURE_ZEN, CATEGORY_SOUND);
         FEATURE_TO_CATEGORY.put(FEATURE_HEADS_UP, CATEGORY_SOUND);
         FEATURE_TO_CATEGORY.put(FEATURE_CAMERA_PRIVACY, CATEGORY_PRIVACY);
@@ -183,11 +173,9 @@ public class AxPlatformClient {
         FEATURE_TO_CATEGORY.put(FEATURE_WORK_PROFILE, CATEGORY_PRIVACY);
         FEATURE_TO_CATEGORY.put(FEATURE_BATTERY_SAVER, CATEGORY_POWER);
         FEATURE_TO_CATEGORY.put(FEATURE_FLASHLIGHT, CATEGORY_POWER);
-        FEATURE_TO_CATEGORY.put(FEATURE_POWER_SHARE, CATEGORY_POWER);
         FEATURE_TO_CATEGORY.put(FEATURE_LOCATION, CATEGORY_SYSTEM);
         FEATURE_TO_CATEGORY.put(FEATURE_AUTO_SYNC, CATEGORY_SYSTEM);
         FEATURE_TO_CATEGORY.put(FEATURE_ONE_HANDED_MODE, CATEGORY_SYSTEM);
-        FEATURE_TO_CATEGORY.put(FEATURE_DREAM, CATEGORY_SYSTEM);
         FEATURE_TO_CATEGORY.put(FEATURE_CAFFEINE, CATEGORY_SYSTEM);
         FEATURE_TO_CATEGORY.put(FEATURE_VPN, CATEGORY_CONNECTIVITY);
         FEATURE_TO_CATEGORY.put(FEATURE_CAST, CATEGORY_CONNECTIVITY);
@@ -267,7 +255,6 @@ public class AxPlatformClient {
         public void onAlarmChanged(long triggerTime, String packageName) {}
         public void onCalendarChanged(String title, long startTime, long endTime,
                 String location) {}
-        public void onNowPlayingChanged(String action, Bundle data) {}
         public void onFeatureChanged(String feature, boolean active) {}
         public void onStateChanged(String key, Bundle state) {}
     }
@@ -499,11 +486,6 @@ public class AxPlatformClient {
                         state.getLong("startTime", 0L),
                         state.getLong("endTime", 0L),
                         state.getString("location", ""));
-                break;
-            case KEY_NOW_PLAYING:
-                listener.onNowPlayingChanged(
-                        state.getString("action", ""),
-                        state);
                 break;
             default:
                 if (state.containsKey("active")) {
